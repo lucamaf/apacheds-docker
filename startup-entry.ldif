@@ -1,0 +1,144 @@
+version: 1
+
+dn: dc=com
+objectClass: extensibleObject
+objectClass: domain
+objectClass: top
+dc: com
+
+dn: dc=adobe,dc=com
+objectClass: extensibleObject
+objectClass: top
+objectClass: domain
+dc: adobe
+description: The context entry for suffix dc=adobe,dc=com
+
+dn: ou=users,dc=adobe,dc=com
+objectClass: top
+objectClass: organizationalunit
+ou: users
+description: This is the users organizational unit
+
+dn: ou=groups,dc=adobe,dc=com
+objectClass: top
+objectClass: organizationalunit
+ou: groups
+description: This is the groups organizational unit
+
+
+
+dn: cn=ldap-marketing, ou=groups, dc=adobe,dc=com
+objectClass: top
+objectClass: groupOfUniqueNames
+uniqueMember: cn=user001,ou=users,dc=adobe,dc=com
+uniqueMember: cn=user002,ou=users,dc=adobe,dc=com
+uniqueMember: cn=user003,ou=users,dc=adobe,dc=com
+uniqueMember: cn=user007,ou=users,dc=adobe,dc=com
+uniqueMember: cn=user008,ou=users,dc=adobe,dc=com
+uniqueMember: cn=user009,ou=users,dc=adobe,dc=com
+uniqueMember: cn=user010,ou=users,dc=adobe,dc=com
+cn: ldap-marketing
+
+
+dn: cn=ldap-human-resources, ou=groups, dc=adobe,dc=com
+objectClass: top
+objectClass: groupOfUniqueNames
+uniqueMember: cn=user004,ou=users,dc=adobe,dc=com
+uniqueMember: cn=user005,ou=users,dc=adobe,dc=com
+uniqueMember: cn=user006,ou=users,dc=adobe,dc=com
+cn: ldap-human-resources
+
+dn: cn=ldap-products, ou=groups, dc=adobe,dc=com
+objectClass: top
+objectClass: groupOfUniqueNames
+uniqueMember: cn=user001,ou=users,dc=adobe,dc=com
+uniqueMember: cn=user004,ou=users,dc=adobe,dc=com
+uniqueMember: cn=user010,ou=users,dc=adobe,dc=com
+
+cn: ldap-products
+
+dn: cn=ldap-management, ou=groups, dc=adobe,dc=com
+objectClass: top
+objectClass: groupOfUniqueNames
+uniqueMember: cn=user001,ou=users,dc=adobe,dc=com
+uniqueMember: cn=user004,ou=users,dc=adobe,dc=com
+cn: ldap-management
+
+dn: cn=ldap-authors, ou=groups, dc=adobe,dc=com
+objectClass: top
+objectClass: groupOfUniqueNames
+uniqueMember: cn=ldap-marketing,ou=groups,dc=adobe,dc=com
+uniqueMember: cn=ldap-human-resources,ou=groups,dc=adobe,dc=com
+uniqueMember: cn=ldap-products,ou=groups,dc=adobe,dc=com
+uniqueMember: cn=ldap-management,ou=groups,dc=adobe,dc=com
+cn: ldap-authors
+
+dn: cn=user001, ou=users, dc=adobe,dc=com
+userPassword:: e01ENX1YMDNNTzFxblpkWWRneWZldUlMUG1RPT0=
+objectClass: top
+objectClass: person
+sn: user001
+cn: user001
+
+dn: cn=user002, ou=users, dc=adobe,dc=com
+userPassword:: e01ENX1YMDNNTzFxblpkWWRneWZldUlMUG1RPT0=
+objectClass: top
+objectClass: person
+sn: user002
+cn: user002
+
+dn: cn=user003, ou=users, dc=adobe,dc=com
+userPassword:: e01ENX1YMDNNTzFxblpkWWRneWZldUlMUG1RPT0=
+objectClass: top
+objectClass: person
+sn: user003
+cn: user003
+
+dn: cn=user004, ou=users, dc=adobe,dc=com
+userPassword:: e01ENX1YMDNNTzFxblpkWWRneWZldUlMUG1RPT0=
+objectClass: top
+objectClass: person
+sn: user004
+cn: user004
+
+dn: cn=user005, ou=users, dc=adobe,dc=com
+userPassword:: e01ENX1YMDNNTzFxblpkWWRneWZldUlMUG1RPT0=
+objectClass: top
+objectClass: person
+sn: user005
+cn: user005
+
+dn: cn=user006, ou=users, dc=adobe,dc=com
+userPassword:: e01ENX1YMDNNTzFxblpkWWRneWZldUlMUG1RPT0=
+objectClass: top
+objectClass: person
+sn: user006
+cn: user006
+
+dn: cn=user007, ou=users, dc=adobe,dc=com
+userPassword:: e01ENX1YMDNNTzFxblpkWWRneWZldUlMUG1RPT0=
+objectClass: top
+objectClass: person
+sn: user007
+cn: user007
+
+dn: cn=user008, ou=users, dc=adobe,dc=com
+userPassword:: e01ENX1YMDNNTzFxblpkWWRneWZldUlMUG1RPT0=
+objectClass: top
+objectClass: person
+sn: user008
+cn: user008
+
+dn: cn=user009, ou=users, dc=adobe,dc=com
+userPassword:: e01ENX1YMDNNTzFxblpkWWRneWZldUlMUG1RPT0=
+objectClass: top
+objectClass: person
+sn: user009
+cn: user009
+
+dn: cn=user010, ou=users, dc=adobe,dc=com
+userPassword:: e01ENX1YMDNNTzFxblpkWWRneWZldUlMUG1RPT0=
+objectClass: top
+objectClass: person
+sn: user010
+cn: user010
