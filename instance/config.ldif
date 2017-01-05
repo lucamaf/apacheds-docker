@@ -29,9 +29,10 @@ ads-directoryserviceid: default
 ads-dsreplicaid: 1
 ads-dssyncperiodmillis: 15000
 ads-dsPasswordHidden: FALSE
-ads-dsallowanonymousaccess: TRUE
+ads-dsallowanonymousaccess: FALSE
 ads-dsaccesscontrolenabled: FALSE
 ads-dsdenormalizeopattrsenabled: FALSE
+ads-dsTestEntries: startup-entry.ldif
 ads-enabled: TRUE
 
 dn: ads-changeLogId=defaultChangeLog,ads-directoryServiceId=default,ou=config
