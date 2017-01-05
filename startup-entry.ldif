@@ -52,7 +52,6 @@ objectClass: groupOfUniqueNames
 uniqueMember: cn=user001,ou=users,dc=adobe,dc=com
 uniqueMember: cn=user004,ou=users,dc=adobe,dc=com
 uniqueMember: cn=user010,ou=users,dc=adobe,dc=com
-
 cn: ldap-products
 
 dn: cn=ldap-management, ou=groups, dc=adobe,dc=com
