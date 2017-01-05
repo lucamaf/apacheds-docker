@@ -637,7 +637,7 @@ ads-krbPostdatedAllowed: TRUE
 ads-krbPrimaryRealm: EXAMPLE.COM
 ads-krbProxiableAllowed: TRUE
 ads-krbRenewableAllowed: TRUE
-ads-searchBaseDN: ou=users,dc=adobe,dc=org
+ads-searchBaseDN: ou=users,dc=adobe,dc=com
 
 dn: ou=transports,ads-serverId=kerberosServer,ou=servers,ads-directoryServiceId=default,ou=config
 ou: transports

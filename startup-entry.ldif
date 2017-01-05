@@ -25,8 +25,6 @@ objectClass: organizationalunit
 ou: groups
 description: This is the groups organizational unit
 
-
-
 dn: cn=ldap-marketing, ou=groups, dc=adobe,dc=com
 objectClass: top
 objectClass: groupOfUniqueNames

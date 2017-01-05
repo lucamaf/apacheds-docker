@@ -7,13 +7,7 @@ MAINTAINER Robert Wunsch <wunsch@gmx.de>
 
 ENV APACHEDS_VERSION 2.0.0-M23
 ENV APACHEDS_ARCH amd64
-
 ENV APACHEDS_ARCHIVE apacheds-${APACHEDS_VERSION}-${APACHEDS_ARCH}.deb
-ENV APACHEDS_DATA /var/lib/apacheds-${APACHEDS_VERSION}
-ENV APACHEDS_USER apacheds
-ENV APACHEDS_GROUP apacheds
-
-VOLUME ${APACHEDS_DATA}
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections \
     && apt-get update \
@@ -22,6 +16,39 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
     && dpkg -i ${APACHEDS_ARCHIVE} \
     && rm ${APACHEDS_ARCHIVE}
 
+
+#############################################
+# ApacheDS bootstrap configuration
+#############################################
+
+ENV APACHEDS_INSTANCE default
+ENV APACHEDS_BOOTSTRAP /bootstrap
+ENV APACHEDS_SCRIPT run.sh
+ENV APACHEDS_CMD /${APACHEDS_SCRIPT}
+
+ENV APACHEDS_USER apacheds
+ENV APACHEDS_GROUP apacheds
+
+ADD scripts/${APACHEDS_SCRIPT} ${APACHEDS_CMD}
+
+RUN chown ${APACHEDS_USER}:${APACHEDS_GROUP} ${APACHEDS_CMD} \
+    && chmod u+rx ${APACHEDS_CMD}
+
+ADD instance/* ${APACHEDS_BOOTSTRAP}/conf/
+ADD startup-entry.ldif ${APACHEDS_BOOTSTRAP}/
+
+RUN mkdir ${APACHEDS_BOOTSTRAP}/cache \
+    && mkdir ${APACHEDS_BOOTSTRAP}/run \
+    && mkdir ${APACHEDS_BOOTSTRAP}/log \
+    && mkdir ${APACHEDS_BOOTSTRAP}/partitions \
+    && chown -R ${APACHEDS_USER}:${APACHEDS_GROUP} ${APACHEDS_BOOTSTRAP}
+
+#############################################
+# Docker configuration
+#############################################
+
+ENV APACHEDS_DATA /var/lib/apacheds-${APACHEDS_VERSION}
+	
 # Ports defined by the default instance configuration:
 # 10389: ldap
 # 10636: ldaps
@@ -31,28 +58,9 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 # 8443: https
 EXPOSE 10389 10636 60088 60464 8080 8443
 
-#############################################
-# ApacheDS bootstrap configuration
-#############################################
-
-ENV APACHEDS_INSTANCE default
-ENV APACHEDS_BOOTSTRAP /bootstrap
-
-ENV APACHEDS_SCRIPT run.sh
-ENV APACHEDS_CMD /${APACHEDS_SCRIPT}
-ADD scripts/${APACHEDS_SCRIPT} ${APACHEDS_CMD}
-RUN chown ${APACHEDS_USER}:${APACHEDS_GROUP} ${APACHEDS_CMD} \
-    && chmod u+rx ${APACHEDS_CMD}
-
-ADD instance/* ${APACHEDS_BOOTSTRAP}/conf/
-ADD startup-entry.ldif ${APACHEDS_BOOTSTRAP}/
-ADD startup-entry.ldif ${APACHEDS_BOOTSTRAP}/conf
-RUN mkdir ${APACHEDS_BOOTSTRAP}/cache \
-    && mkdir ${APACHEDS_BOOTSTRAP}/run \
-    && mkdir ${APACHEDS_BOOTSTRAP}/log \
-    && mkdir ${APACHEDS_BOOTSTRAP}/partitions \
-    && chown -R ${APACHEDS_USER}:${APACHEDS_GROUP} ${APACHEDS_BOOTSTRAP}
-
+VOLUME ${APACHEDS_DATA}
+VOLUME ${APACHEDS_DATA}\${APACHEDS_INSTANCE}\log	
+	
 #############################################
 # ApacheDS wrapper command
 #############################################
