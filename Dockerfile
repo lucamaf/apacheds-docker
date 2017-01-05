@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER ome-devel@lists.openmicroscopy.org.uk
+MAINTAINER Robert Wunsch <wunsch@gmx.de>
 
 #############################################
 # ApacheDS installation
