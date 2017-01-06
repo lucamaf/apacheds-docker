@@ -32,7 +32,6 @@ ads-dsPasswordHidden: FALSE
 ads-dsallowanonymousaccess: FALSE
 ads-dsaccesscontrolenabled: FALSE
 ads-dsdenormalizeopattrsenabled: FALSE
-ads-dsTestEntries: /bootstrap/startup-entry.ldif
 ads-enabled: TRUE
 
 dn: ads-changeLogId=defaultChangeLog,ads-directoryServiceId=default,ou=config
