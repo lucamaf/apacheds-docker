@@ -21,7 +21,8 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 # ApacheDS bootstrap configuration
 #############################################
 
-ENV APACHEDS_INSTANCE default
+#ENV APACHEDS_INSTANCE default  	##when using this the run.sh does not go into the if clause as the folder is there already (for unknown reasons)
+ENV APACHEDS_INSTANCE aem-ldap
 ENV APACHEDS_BOOTSTRAP /bootstrap
 ENV APACHEDS_SCRIPT run.sh
 ENV APACHEDS_CMD /${APACHEDS_SCRIPT}
