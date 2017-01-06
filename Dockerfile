@@ -58,8 +58,7 @@ ENV APACHEDS_DATA /var/lib/apacheds-${APACHEDS_VERSION}
 # 8443: https
 EXPOSE 10389 10636 60088 60464 8080 8443
 
-VOLUME ${APACHEDS_DATA}
-VOLUME ${APACHEDS_DATA}/${APACHEDS_INSTANCE}/log	
+VOLUME ${APACHEDS_DATA}	
 	
 #############################################
 # ApacheDS wrapper command
