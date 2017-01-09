@@ -23,6 +23,10 @@ if [ ! -d ${APACHEDS_INSTANCE_DIRECTORY} ]; then
 		ldapadd -v -h localhost:10389 -c -x -D uid=admin,ou=system -w secret -f /bootstrap/startup-entry.ldif
 		/opt/apacheds-${APACHEDS_VERSION}/bin/apacheds stop ${APACHEDS_INSTANCE}
 	fi
+	
+	if [ "$INSTALL_AEM_CONFIG" = "TRUE" ]; then
+		 curl -u admin:admin -F file=@"${APACHEDS_BOOTSTRAP}/optional/ldap-config-server-test-1.0.0.zip" -F name="ldap-config-server-test" -F force=true -F install=true http://author:4502/crx/packmgr/service.jsp
+	fi 
 fi
 
 # Execute the server in console mode and not as a daemon.

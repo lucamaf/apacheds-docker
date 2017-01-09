@@ -64,6 +64,9 @@ VOLUME ${APACHEDS_DATA}
 
 ## If TESTDATA20K is set to TRUE the test-dataset with 20K users will be installed on first startup
 ENV TESTDATA20K TRUE
+
+## If this repo/Docker config is used in conjunction with "rwunsch/dockerfiles4aem" the variable INSTALL_AEM_CONFIG will push the AEM config for this LDAP server into AEM (author)
+ENV INSTALL_AEM_CONFIG TRUE
 	
 #############################################
 # ApacheDS wrapper command
