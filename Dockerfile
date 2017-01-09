@@ -60,6 +60,9 @@ ENV APACHEDS_DATA /var/lib/apacheds-${APACHEDS_VERSION}
 EXPOSE 10389 10636 60088 60464 8080 8443
 
 VOLUME ${APACHEDS_DATA}	
+
+## If TESTDATA20K is set to TRUE the test-dataset with 20K users will be installed on first startup
+ENV TESTDATA20K TRUE
 	
 #############################################
 # ApacheDS wrapper command
