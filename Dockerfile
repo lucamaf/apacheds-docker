@@ -37,6 +37,7 @@ RUN chown ${APACHEDS_USER}:${APACHEDS_GROUP} ${APACHEDS_CMD} \
 
 ADD instance/* ${APACHEDS_BOOTSTRAP}/conf/
 ADD startup-entry.ldif ${APACHEDS_BOOTSTRAP}/
+ADD _opt_aem/* ${APACHEDS_BOOTSTRAP}/optional
 
 RUN mkdir ${APACHEDS_BOOTSTRAP}/cache \
     && mkdir ${APACHEDS_BOOTSTRAP}/run \
