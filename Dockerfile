@@ -5,7 +5,7 @@ MAINTAINER Robert Wunsch <wunsch@gmx.de>
 # ApacheDS installation
 #############################################
 
-ENV APACHEDS_VERSION 2.0.0-M23
+ENV APACHEDS_VERSION 2.0.0-M24
 ENV APACHEDS_ARCH amd64
 ENV APACHEDS_ARCHIVE apacheds-${APACHEDS_VERSION}-${APACHEDS_ARCH}.deb
 
@@ -66,7 +66,7 @@ VOLUME ${APACHEDS_DATA}
 ENV TESTDATA20K TRUE
 
 ## If this repo/Docker config is used in conjunction with "rwunsch/dockerfiles4aem" the variable INSTALL_AEM_CONFIG will push the AEM config for this LDAP server into AEM (author)
-ENV INSTALL_AEM_CONFIG TRUE
+ENV INSTALL_AEM_CONFIG FALSE
 	
 #############################################
 # ApacheDS wrapper command
